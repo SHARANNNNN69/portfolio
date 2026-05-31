@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #f3f4f6;
+    background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+
+h1, h2, h3, header div {
+    font-family: 'Syne', sans-serif;
+}
+
+/* Custom Brutalist Framing Custom Shadow Offsets */
+.brutal-shadow {
+    box-shadow: 8px 8px 0px 0px #000000;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.brutal-shadow:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px 0px #000000;
+}
+
+.brutal-shadow-btn {
+    box-shadow: 4px 4px 0px 0px #000000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutal-shadow-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.brutal-shadow-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px 0px #000000;
+}
+
+/* Marquee Loop */
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 12s linear infinite;
+}
+
+/* Custom Brutalist Cursor Follower */
+#custom-cursor {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 2px 6px;
+    background: #FFE600;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: 10px;
+    font-weight: 900;
+    font-family: monospace;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+body:hover #custom-cursor {
+    display: block;
+}
+
+/* High Contrast Highlight Selection Override */
+::selection {
+    background-color: #000000;
+    color: #FFE600;
+}
