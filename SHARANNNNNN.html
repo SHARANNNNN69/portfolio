@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRH // SHARAN. — System Architect & Full-Stack Operator</title>
+    <meta name="description" content="Sharan R. Horakeri (sharannnnn.online) — System Architect & Full-Stack Operator based in Hubballi, Karnataka. B.E. CS & AI Engineering at KLE Technological University (2028).">
+
+    <!-- Google Fonts: JetBrains Mono, Space Grotesk, Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        alabaster: '#F8F6F2',
+                        cream: '#F1EDE6',
+                        ink: '#161616',
+                        slatewarm: '#5E5A54',
+                        stone: '#E2DDD5',
+                        terracotta: {
+                            DEFAULT: '#C85A32',
+                            bright: '#DC653A',
+                            dark: '#9E4221',
+                            soft: 'rgba(200, 90, 50, 0.12)'
+                        },
+                        sage: {
+                            DEFAULT: '#2D5A4C',
+                            soft: 'rgba(45, 90, 76, 0.12)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Warm Editorial Alabaster (#F8F6F2) & Terracotta (#C85A32) Aesthetic */
+        html {
+            scroll-behavior: auto !important;
+            overflow-y: auto;
+        }
+
+        body {
+            background-color: #F8F6F2;
+            color: #161616;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Strict User Scroll Lock ONLY during active construction (removed immediately at 20/20) */
+        html.scroll-locked,
+        body.scroll-locked {
+            overflow-y: hidden !important;
+            overscroll-behavior: none !important;
+            touch-action: none !important;
+        }
+
+        ::selection {
+            background: #C85A32;
+            color: #FFFFFF;
+        }
+
+        /* Subtle Warm Stone Radial Dot-Matrix Canvas */
+        .op-art-dots {
+            background-image: radial-gradient(rgba(22, 22, 22, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .op-art-terracotta-dots {
+            background-image: radial-gradient(rgba(200, 90, 50, 0.18) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        /* Concentric Geometric Op-Art Rings Pattern */
+        .op-art-concentric {
+            background-image: repeating-radial-gradient(
+                circle at 82% 28%,
+                transparent 0,
+                transparent 28px,
+                rgba(200, 90, 50, 0.06) 29px,
+                transparent 30px
+            );
+        }
+
+        /* Warm Editorial Crisp 1px Cards */
+        .editorial-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E2DDD5;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .editorial-card:hover {
+            border-color: #C85A32;
+            box-shadow: 0 12px 32px rgba(22, 22, 22, 0.06);
+        }
+
+        /* Terracotta Micro Pulse Dot */
+        .terracotta-glow-dot {
+            box-shadow: 0 0 8px rgba(200, 90, 50, 0.65);
+        }
+
+        /* Custom Warm Editorial Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1EDE6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CFC8BC;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C85A32;
+        }
+
+        /* Blinking Terminal Cursor */
+        .cursor-blink {
+            display: inline-block;
+            width: 7px;
+            height: 14px;
+            background-color: #C85A32;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Live Multi-Agent Swarm Overlay Styles */
+        @keyframes agentRipple {
+            0% {
+                transform: translate(-50%, -50%) scale(0.35);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .agent-click-ripple {
+            position: fixed;
+            width: 34px;
+            height: 34px;
+            border: 1.5px solid #C85A32;
+            border-radius: 9999px;
+            pointer-events: none;
+            z-index: 44;
+            box-shadow: 0 0 12px rgba(200, 90, 50, 0.35);
+            animation: agentRipple 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .agent-target-active {
+            border-color: #C85A32 !important;
+            box-shadow: 0 8px 26px rgba(200, 90, 50, 0.16), inset 0 0 10px rgba(200, 90, 50, 0.05) !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        /* Live Autonomous Website Construction Blueprint States */
+        [data-build-slot] {
+            position: relative;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        [data-build-slot].slot-unbuilt {
+            border: 1px dashed #CBC3B6 !important;
+            background-color: rgba(241, 237, 230, 0.65) !important;
+            box-shadow: none !important;
+        }
+
+        [data-build-slot].slot-unbuilt > * {
+            opacity: 0 !important;
+            transform: translateY(6px);
+            pointer-events: none;
+        }
+
+        [data-build-slot].slot-unbuilt::before {
+            content: attr(data-slot-label);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #8A8379;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        [data-build-slot].slot-building {
+            border: 1px solid #C85A32 !important;
+            box-shadow: 0 10px 28px rgba(200, 90, 50, 0.18), inset 0 0 14px rgba(200, 90, 50, 0.08) !important;
+        }
+
+        [data-build-slot].slot-building::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C85A32, #2D5A4C, #C85A32, transparent);
+            box-shadow: 0 0 10px rgba(200, 90, 50, 0.75);
+            animation: buildScanline 0.6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @keyframes buildScanline {
+            0% { top: 0%; opacity: 0.25; }
+            50% { top: 100%; opacity: 1; }
+            100% { top: 0%; opacity: 0.25; }
+        }
+
+        [data-build-slot].slot-built > * {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes sparkBurst {
+            0% { transform: translate(-50%, -50%) scale(0.45); opacity: 1; }
+            100% { transform: translate(var(--sx), var(--sy)) scale(0); opacity: 0; }
+        }
+
+        .agent-spark {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background-color: #C85A32;
+            box-shadow: 0 0 6px rgba(200, 90, 50, 0.8);
+            pointer-events: none;
+            z-index: 46;
+            animation: sparkBurst 0.55s ease-out forwards;
+        }
+
+        /* 4-Bar Audio Equalizer Animation */
+        @keyframes eqWave {
+            0%, 100% { transform: scaleY(0.28); }
+            50% { transform: scaleY(1); }
+        }
+        .eq-bar {
+            transform-origin: bottom;
+            transition: transform 0.2s ease;
+        }
+        .eq-playing .eq-bar:nth-child(1) { animation: eqWave 0.65s ease-in-out infinite; }
+        .eq-playing .eq-bar:nth-child(2) { animation: eqWave 0.48s ease-in-out 0.12s infinite; }
+        .eq-playing .eq-bar:nth-child(3) { animation: eqWave 0.72s ease-in-out 0.24s infinite; }
+        .eq-playing .eq-bar:nth-child(4) { animation: eqWave 0.55s ease-in-out 0.08s infinite; }
+    </style>
+</head>
+<body class="op-art-dots antialiased relative">
+
+    <!-- Local Soundtrack Audio Element (Place loki_finale_intro.mp3 in same directory) -->
+    <audio id="bgAudio" src="./loki_finale_intro.mp3" loop preload="auto"></audio>
+    <input type="file" id="audioFileFallbackInput" accept="audio/*" class="hidden" />
+
+    <!-- Top Edge Terracotta Hairline -->
+    <div class="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-terracotta to-transparent z-50"></div>
+
+    <!-- 1. STICKY TOP BAR -->
+    <header data-build-slot="SLOT_NAV_BAR" data-slot-label="[UNBUILT_SLOT // 01_NAV_SCAFFOLD]" data-agent-owner="AGENT-01" class="sticky top-0 z-40 bg-alabaster/92 backdrop-blur-md border-b border-stone">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Left: Monogram Box SRH + SHARAN. -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 bg-white border border-stone group-hover:border-terracotta flex items-center justify-center font-mono text-xs font-extrabold tracking-tighter text-ink transition-colors">
+                    SRH
+                </div>
+                <span class="font-display font-extrabold text-base sm:text-lg tracking-tight text-ink">
+                    SHARAN<span class="text-terracotta">.</span>
+                </span>
+            </a>
+
+            <!-- Center Links: About, Flagships, Matrix, Contact -->
+            <nav class="hidden md:flex items-center gap-9 font-mono text-xs tracking-widest uppercase text-slatewarm">
+                <a href="#about" class="hover:text-terracotta transition-colors">About</a>
+                <a href="#flagships" class="hover:text-terracotta transition-colors">Flagships</a>
+                <a href="#matrix" class="hover:text-terracotta transition-colors">Matrix</a>
+                <a href="#contact" class="hover:text-terracotta transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right: Swarm Status + ● Available status pill + DISPATCH → CTA button -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <button onclick="toggleSwarmVisibility()" id="headerSwarmIndicator" title="Toggle Autonomous Agent Swarm" class="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-terracotta-soft border border-terracotta/40 hover:border-terracotta font-mono text-[11px] font-semibold tracking-wider text-terracotta cursor-pointer transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-terracotta terracotta-glow-dot animate-pulse"></span>
+                    <span>6 AGENTS BUILDING</span>
+                </button>
+
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-white border border-stone font-mono text-[11px] font-medium tracking-wider text-ink">
+                    <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                    <span>● Available</span>
+                </div>
+
+                <a href="#contact" class="px-4 py-2 bg-terracotta hover:bg-terracotta-bright text-white font-mono text-xs font-bold tracking-wider uppercase transition-all border border-terracotta flex items-center gap-1.5 shadow-sm">
+                    <span>DISPATCH</span>
+                    <span>→</span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 border border-stone bg-white text-ink hover:border-terracotta">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream border-b border-stone px-4 py-4 space-y-3 font-mono text-xs uppercase tracking-widest">
+            <div class="flex items-center gap-2 pb-2 border-b border-stone text-ink">
+                <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                <span>● Available // Hubballi, IN</span>
+            </div>
+            <a href="#about" class="block py-1.5 text-ink hover:text-terracotta">01 // About</a>
+            <a href="#flagships" class="block py-1.5 text-ink hover:text-terracotta">02 // Flagships</a>
+            <a href="#matrix" class="block py-1.5 text-ink hover:text-terracotta">03 // Matrix</a>
+            <a href="#contact" class="block py-1.5 text-ink hover:text-terracotta">04 // Contact</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION (2-Column Asymmetric Split with Concentric Op-Art Canvas) -->
+    <section class="relative border-b border-stone op-art-concentric overflow-hidden">
+        <!-- Geometric SVG Op-Art Radial Grid Overlay -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-45" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="opArtRays" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <path d="M 120 0 L 0 0 0 120" fill="none" stroke="#E2DDD5" stroke-width="0.8"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#opArtRays)" />
+            <circle cx="84%" cy="32%" r="220" fill="none" stroke="#C85A32" stroke-width="0.75" stroke-dasharray="3 6" />
+            <circle cx="84%" cy="32%" r="340" fill="none" stroke="#DCD5C9" stroke-width="1" />
+            <circle cx="84%" cy="32%" r="460" fill="none" stroke="#2D5A4C" stroke-width="0.55" stroke-dasharray="2 8" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 lg:pt-24 lg:pb-28 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+                <!-- Left Column (7 cols) -->
+                <div class="lg:col-span-7 space-y-7">
+                    <div data-build-slot="SLOT_HERO_HEADLINE" data-slot-label="[UNBUILT_SLOT // 02_HERO_HEADLINE]" data-agent-owner="AGENT-02" class="space-y-5 p-3 -m-3">
+                        <!-- Tag: PORTFOLIO -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-stone font-mono text-[11px] font-bold tracking-[0.2em] text-slatewarm uppercase">
+                            <span class="w-1.5 h-1.5 bg-terracotta"></span>
+                            <span>PORTFOLIO</span>
+                        </div>
+
+                        <!-- Massive Display Headline -->
+                        <div class="space-y-3">
+                            <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-[74px] tracking-tight text-ink leading-[0.98]">
+                                Hello, I'm<br>
+                                <span id="heroNameTarget" class="text-ink">SHARAN</span><span class="text-terracotta">.</span>
+                            </h1>
+
+                            <!-- Subtitle Badge -->
+                            <div class="pt-2">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-terracotta-soft border border-terracotta/40 font-mono text-xs font-bold tracking-wider text-terracotta uppercase">
+                                    <span class="w-2 h-2 rounded-full bg-terracotta terracotta-glow-dot"></span>
+                                    <span>● SYSTEM ARCHITECT &amp; FULL-STACK OPERATOR</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Bio Lead -->
+                        <p class="text-base sm:text-lg text-slatewarm leading-relaxed max-w-2xl">
+                            Engineering sovereign software systems, embedded hardware controllers, and quantitative execution scripts from first principles — <span class="text-ink font-semibold">zero bloat, total control.</span>
+                        </p>
+
+                        <!-- Dual CTA Buttons -->
+                        <div class="flex flex-wrap items-center gap-4 pt-1">
+                            <a href="#contact" class="px-6 py-3.5 bg-terracotta hover:bg-terracotta-bright text-white font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all border border-terracotta flex items-center gap-2 shadow-sm">
+                                <span>INITIATE DISPATCH</span>
+                                <span>→</span>
+                            </a>
+                            <a href="#flagships" class="px-6 py-3.5 bg-white hover:bg-cream text-ink font-mono text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all border border-stone hover:border-terracotta flex items-center gap-2">
+                                <span>EXPLORE ARCHITECTURE</span>
+                                <i data-lucide="arrow-down-right" class="w-4 h-4 text-terracotta"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3-Column Telemetry Metric Strip -->
+                    <div data-build-slot="SLOT_HERO_METRICS" data-slot-label="[UNBUILT_SLOT // 03_TELEMETRY_COUNTERS]" data-agent-owner="AGENT-02" class="grid grid-cols-3 border border-stone bg-white">
+                        <div class="p-4 sm:p-5 border-r border-stone" data-agent-node="HERO_SYSTEMS_METRIC">
+                            <div id="metricSystems" class="font-display font-extrabold text-2xl sm:text-3xl text-ink">12+</div>
+                            <div class="font-mono text-[11px] sm:text-xs text-slatewarm mt-1">Production Systems</div>
+                        </div>
+                        <div class="p-4 sm:p-5 border-r border-stone" data-agent-node="HERO_STACK_METRIC">
+                            <div id="metricLayers" class="font-display font-extrabold text-2xl sm:text-3xl text-terracotta">7-Layer</div>
+                            <div class="font-mono text-[11px] sm:text-xs text-slatewarm mt-1">Core Stack</div>
+                        </div>
+                        <div class="p-4 sm:p-5" data-agent-node="HERO_BAREMETAL_METRIC">
+                            <div id="metricBareMetal" class="font-display font-extrabold text-2xl sm:text-3xl text-sage">100%</div>
+                            <div class="font-mono text-[11px] sm:text-xs text-slatewarm mt-1">Bare-Metal &amp; Cloud</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Silicon Terminal Card (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div data-build-slot="SLOT_SILICON_CARD" data-slot-label="[UNBUILT_SLOT // 04_SILICON_TERMINAL]" data-agent-owner="AGENT-01" class="editorial-card bg-white relative" data-agent-node="SILICON_TERMINAL">
+                        <!-- Header: Sharan R. Horakeri | ● SOVEREIGN SILICON ACTIVE -->
+                        <div class="px-4 py-3.5 bg-cream border-b border-stone flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2 font-mono text-xs font-bold text-ink">
+                                <span class="w-2 h-2 bg-terracotta"></span>
+                                <span>Sharan R. Horakeri</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 font-mono text-[11px] font-bold text-sage">
+                                <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                                <span>● SOVEREIGN SILICON ACTIVE</span>
+                            </div>
+                        </div>
+
+                        <!-- Sub-header telemetry bar -->
+                        <div class="px-4 py-2 bg-alabaster border-b border-stone flex items-center justify-between font-mono text-[10px] text-slatewarm">
+                            <span>NODE: SHARANNNNN.ONLINE // KLE-IN</span>
+                            <span id="liveClock">IST 19:23:00</span>
+                        </div>
+
+                        <!-- 3 Stacked Numbered Subsystem Rows -->
+                        <div class="p-4 sm:p-5 space-y-3 op-art-terracotta-dots">
+                            <!-- Row 01 -->
+                            <div class="bg-alabaster border border-stone hover:border-terracotta p-4 transition-colors" data-agent-node="RUNTIME_DAEMON">
+                                <div class="flex items-center justify-between font-mono text-[11px] mb-1">
+                                    <span class="text-terracotta font-bold">01. RUNTIME</span>
+                                    <span class="text-slatewarm">[DAEMON_24X7]</span>
+                                </div>
+                                <div class="font-display font-bold text-base text-ink mb-1">
+                                    Autonomous Core
+                                </div>
+                                <p class="font-mono text-xs text-slatewarm leading-relaxed">
+                                    Windows Task Scheduler &amp; Python daemon runtime with Telegram remote command execution.
+                                </p>
+                            </div>
+
+                            <!-- Row 02 -->
+                            <div class="bg-alabaster border border-stone hover:border-terracotta p-4 transition-colors" data-agent-node="EDGE_PRODUCTION">
+                                <div class="flex items-center justify-between font-mono text-[11px] mb-1">
+                                    <span class="text-terracotta font-bold">02. PRODUCTION</span>
+                                    <span class="text-slatewarm">[EDGE_DEPLOY]</span>
+                                </div>
+                                <div class="font-display font-bold text-base text-ink mb-1">
+                                    Full-Stack &amp; Mobile
+                                </div>
+                                <p class="font-mono text-xs text-slatewarm leading-relaxed">
+                                    Cross-platform Flutter, React, Node.js &amp; Vercel deployments live on sharannnnn.online.
+                                </p>
+                            </div>
+
+                            <!-- Row 03 -->
+                            <div class="bg-alabaster border border-stone hover:border-terracotta p-4 transition-colors" data-agent-node="SUB50MS_EXECUTION">
+                                <div class="flex items-center justify-between font-mono text-[11px] mb-1">
+                                    <span class="text-terracotta font-bold">03. EXECUTION</span>
+                                    <span class="text-slatewarm">[SUB_50MS_IRQ]</span>
+                                </div>
+                                <div class="font-display font-bold text-base text-ink mb-1">
+                                    Sub-50ms Hardware Loops
+                                </div>
+                                <p class="font-mono text-xs text-slatewarm leading-relaxed">
+                                    ESP32 microcontroller firmware, relay switching &amp; intraday price-action execution.
+                                </p>
+                            </div>
+
+                            <!-- Tech Stack Pill Row -->
+                            <div class="pt-2">
+                                <div class="font-mono text-[10px] text-slatewarm uppercase tracking-widest mb-2">
+                                    SILICON_RUNTIME_STACK //
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">Python</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">C / C++</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">React</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">Flutter</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">ESP32</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone hover:border-terracotta font-mono text-xs text-ink transition-colors">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Status Footer -->
+                        <div class="px-4 py-2.5 bg-cream border-t border-stone font-mono text-xs text-slatewarm flex items-center justify-between">
+                            <span>srh@workstation:~$ ./check_telemetry</span>
+                            <span class="text-sage font-bold">NOMINAL <span class="cursor-blink ml-1"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 3. SECTION // 01.00 SEC_ABOUT INDEX [01 / 05] -->
+        <section id="about" class="py-20 lg:py-24 border-b border-stone">
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <div class="font-mono text-xs text-terracotta font-semibold tracking-widest uppercase mb-2">
+                        // 01.00 SEC_ABOUT INDEX [01 / 05]
+                    </div>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight">
+                        ENGINEER PROFILE <span class="text-stone font-light">/</span> Background &amp; Philosophy
+                    </h2>
+                </div>
+                <div class="font-mono text-xs text-slatewarm border border-stone bg-white px-3 py-1.5 self-start sm:self-auto">
+                    HUBBALLI, IN // 15.3647° N, 75.1240° E
+                </div>
+            </div>
+
+            <!-- Narrative Prose & Terracotta Blockquote -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+                <div data-build-slot="SLOT_ABOUT_DOSSIER" data-slot-label="[UNBUILT_SLOT // 05_ENGINEER_DOSSIER]" data-agent-owner="AGENT-03" class="lg:col-span-7 editorial-card p-6 sm:p-8 space-y-5" data-agent-node="OPERATOR_DOSSIER">
+                    <div class="flex items-center justify-between border-b border-stone pb-3 font-mono text-xs">
+                        <span class="text-terracotta font-bold">OPERATOR_DOSSIER // SHARAN R. HORAKERI</span>
+                        <span class="text-slatewarm">KLE_TECH [2028]</span>
+                    </div>
+
+                    <p class="text-ink text-base sm:text-lg leading-relaxed">
+                        I am <strong class="text-ink font-bold">Sharan R. Horakeri</strong>, an independent systems &amp; full-stack engineer based in <strong class="text-ink font-bold">Hubballi, Karnataka</strong>, pursuing a B.E. in <strong class="text-ink font-bold">Computer Science and Artificial Intelligence Engineering at KLE Technological University (Batch of 2028)</strong>.
+                    </p>
+
+                    <p class="text-slatewarm text-sm sm:text-base leading-relaxed">
+                        My engineering practice pairs rigorous core computer science fundamentals—<span class="text-ink font-medium">Data Structures &amp; Algorithms (DSA), Design &amp; Analysis of Algorithms (DAA), Operating Systems (OS), and Database Management Systems (DBMS)</span>—with hands-on embedded electronics, full-stack web and mobile product engineering, and live <span class="text-ink font-medium">Shoonya technical price-action scalping</span>.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-stone font-mono text-xs">
+                        <div>
+                            <span class="text-slatewarm block text-[10px]">BASE</span>
+                            <span class="text-ink font-semibold">Hubballi, KA</span>
+                        </div>
+                        <div>
+                            <span class="text-slatewarm block text-[10px]">DEGREE</span>
+                            <span class="text-ink font-semibold">B.E. CS &amp; AI</span>
+                        </div>
+                        <div>
+                            <span class="text-slatewarm block text-[10px]">MARKET_DESK</span>
+                            <span class="text-terracotta font-semibold">Shoonya Quant</span>
+                        </div>
+                        <div>
+                            <span class="text-slatewarm block text-[10px]">APEX_DOMAIN</span>
+                            <span class="text-ink font-semibold">sharannnnn.online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terracotta-Accented Blockquote -->
+                <div data-build-slot="SLOT_ABOUT_AXIOM" data-slot-label="[UNBUILT_SLOT // 06_AXIOM_QUOTE]" data-agent-owner="AGENT-03" class="lg:col-span-5 editorial-card bg-cream p-6 sm:p-8 border-l-4 border-l-terracotta flex flex-col justify-between relative" data-agent-node="CONSTITUTIONAL_AXIOM">
+                    <div class="font-mono text-xs text-terracotta font-semibold tracking-widest uppercase">
+                        // CONSTITUTIONAL_AXIOM
+                    </div>
+
+                    <blockquote class="my-6">
+                        <p class="font-display font-bold text-xl sm:text-2xl text-ink leading-snug">
+                            "I design and deploy full-stack applications, autonomous Windows daemons, and bare-metal ESP32 hardware systems that operate reliably from first principles — not bloated abstractions."
+                        </p>
+                    </blockquote>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-stone font-mono text-xs text-slatewarm">
+                        <span>— SHARAN R. HORAKERI</span>
+                        <span class="text-terracotta font-bold">[FIRST_PRINCIPLES]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Numbered Philosophy Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 01 Sovereign Control -->
+                <div data-build-slot="SLOT_PHIL_01" data-slot-label="[UNBUILT_SLOT // 07_PHILOSOPHY_01]" data-agent-owner="AGENT-03" class="editorial-card p-6 flex flex-col justify-between group" data-agent-node="PHILOSOPHY_01">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs font-bold px-2.5 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta">01 Sovereign Control</span>
+                            <i data-lucide="shield-check" class="w-5 h-5 text-slatewarm group-hover:text-terracotta transition-colors"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-2.5">
+                            Zero Cloud Lock-In
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed">
+                            Systems run directly on owned hardware—local Windows daemons, offline-first mobile caches, and standalone ESP32 Wi-Fi access points—ensuring deterministic operation even when external networks drop.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-stone font-mono text-[11px] text-slatewarm">
+                        DIRECTIVE // LOCAL_SILICON_FIRST
+                    </div>
+                </div>
+
+                <!-- 02 First-Principles Architecture -->
+                <div data-build-slot="SLOT_PHIL_02" data-slot-label="[UNBUILT_SLOT // 08_PHILOSOPHY_02]" data-agent-owner="AGENT-03" class="editorial-card p-6 flex flex-col justify-between group" data-agent-node="PHILOSOPHY_02">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs font-bold px-2.5 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta">02 First-Principles Architecture</span>
+                            <i data-lucide="cpu" class="w-5 h-5 text-slatewarm group-hover:text-terracotta transition-colors"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-2.5">
+                            Silicon-to-Interface Mastery
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed">
+                            Grounded in OS process scheduling, memory management, SPI hardware buses, and algorithmic complexity—building lean software without heavy framework overhead.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-stone font-mono text-[11px] text-slatewarm">
+                        DIRECTIVE // ZERO_BLOAT_RUNTIME
+                    </div>
+                </div>
+
+                <!-- 03 Deterministic Execution -->
+                <div data-build-slot="SLOT_PHIL_03" data-slot-label="[UNBUILT_SLOT // 09_PHILOSOPHY_03]" data-agent-owner="AGENT-03" class="editorial-card p-6 flex flex-col justify-between group" data-agent-node="PHILOSOPHY_03">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs font-bold px-2.5 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta">03 Deterministic Execution</span>
+                            <i data-lucide="crosshair" class="w-5 h-5 text-slatewarm group-hover:text-terracotta transition-colors"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-2.5">
+                            Hard State Machines
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed">
+                            Whether actuating dual-axis lead-screw mechatronics, switching high-voltage relays in sub-50ms loops, or executing intraday options scalps, every state transition is bounded and verified.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-stone font-mono text-[11px] text-slatewarm">
+                        DIRECTIVE // BOUNDED_LATENCY
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECTION: ARCHITECTURAL SHOWCASE / Flagship Deployments -->
+        <section id="flagships" class="py-20 lg:py-24 border-b border-stone">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <div class="font-mono text-xs text-terracotta font-semibold tracking-widest uppercase mb-2">
+                        // 02.00 ARCHITECTURAL SHOWCASE [02 / 05]
+                    </div>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight">
+                        ARCHITECTURAL SHOWCASE <span class="text-stone font-light">/</span> Flagship Deployments
+                    </h2>
+                </div>
+                <div class="font-mono text-xs text-slatewarm">
+                    SHARAN-OS + 3 FLAGSHIP SYSTEMS
+                </div>
+            </div>
+
+            <!-- Featured Full-Width Core Ecosystem Card: SHARAN-OS -->
+            <div data-build-slot="SLOT_SHARAN_OS" data-slot-label="[UNBUILT_SLOT // 10_SHARAN_OS_7_LAYER_STACK]" data-agent-owner="AGENT-04" class="editorial-card bg-white mb-10">
+                <!-- Top Header Bar -->
+                <div class="p-6 sm:p-8 border-b border-stone bg-cream/65">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-terracotta-soft border border-terracotta text-terracotta font-mono text-xs font-bold tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-terracotta terracotta-glow-dot animate-pulse"></span>
+                            <span>● CORE ECOSYSTEM</span>
+                        </span>
+                        <span class="font-mono text-xs text-slatewarm">
+                            Hardware: Windows Workstation • Bare-Metal &amp; Cloud Execution
+                        </span>
+                    </div>
+
+                    <h3 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink mb-3">
+                        SHARAN-OS — 7-Layer Autonomous &amp; Full-Stack Ecosystem
+                    </h3>
+                    <p class="text-slatewarm text-sm sm:text-base max-w-4xl leading-relaxed mb-6">
+                        A persistent automation and full-stack engineering stack operating across local Windows silicon, ESP32 nodes, and Vercel edge networks.
+                    </p>
+
+                    <!-- 4-Column Telemetry Boxes -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 border border-stone bg-white">
+                        <div class="p-4 border-b lg:border-b-0 border-r border-stone">
+                            <div class="font-mono text-[10px] text-slatewarm uppercase tracking-wider">AVAILABILITY</div>
+                            <div class="font-display font-bold text-base sm:text-lg text-ink mt-0.5">24/7 Daemon Uptime</div>
+                        </div>
+                        <div class="p-4 border-b lg:border-b-0 lg:border-r border-stone">
+                            <div class="font-mono text-[10px] text-slatewarm uppercase tracking-wider">SURFACE_AREA</div>
+                            <div class="font-display font-bold text-base sm:text-lg text-terracotta mt-0.5">14+ Core Modules</div>
+                        </div>
+                        <div class="p-4 border-r border-stone">
+                            <div class="font-mono text-[10px] text-slatewarm uppercase tracking-wider">DETERMINISM</div>
+                            <div class="font-display font-bold text-base sm:text-lg text-sage mt-0.5">Sub-50ms Hardware IRQ</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="font-mono text-[10px] text-slatewarm uppercase tracking-wider">EXECUTION_FABRIC</div>
+                            <div class="font-display font-bold text-base sm:text-lg text-ink mt-0.5">Multi-Stack Runtime</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive 7-LAYER CONSTITUTIONAL STACK -->
+                <div class="p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div class="font-mono text-xs font-bold tracking-widest uppercase text-ink flex items-center gap-2">
+                            <span class="w-2 h-2 bg-terracotta"></span>
+                            <span>7-LAYER CONSTITUTIONAL STACK</span>
+                        </div>
+                        <span class="font-mono text-xs text-slatewarm">
+                            Click a layer to inspect implementation
+                        </span>
+                    </div>
+
+                    <!-- 7 Clickable Layer Tabs -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-6" role="tablist">
+                        <button onclick="selectLayer('L1')" id="tab-L1" data-agent-layer="L1" data-agent-node="STACK_L1_DAEMON" class="layer-tab text-left p-3 border border-terracotta bg-terracotta-soft text-ink font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-terracotta">L1</div>
+                            <div class="text-[11px] text-ink font-medium mt-0.5 leading-tight">OS Daemon Core</div>
+                        </button>
+                        <button onclick="selectLayer('L2')" id="tab-L2" data-agent-layer="L2" data-agent-node="STACK_L2_TELEGRAM" class="layer-tab text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L2</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Telegram C2</div>
+                        </button>
+                        <button onclick="selectLayer('L3')" id="tab-L3" data-agent-layer="L3" data-agent-node="STACK_L3_WEB" class="layer-tab text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L3</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Edge Web Stack</div>
+                        </button>
+                        <button onclick="selectLayer('L4')" id="tab-L4" data-agent-layer="L4" data-agent-node="STACK_L4_OCR" class="layer-tab text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L4</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Mobile &amp; OCR</div>
+                        </button>
+                        <button onclick="selectLayer('L5')" id="tab-L5" data-agent-layer="L5" data-agent-node="STACK_L5_ESP32" class="layer-tab text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L5</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Embedded ESP32</div>
+                        </button>
+                        <button onclick="selectLayer('L6')" id="tab-L6" data-agent-layer="L6" data-agent-node="STACK_L6_QUANT" class="layer-tab text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L6</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Quant Execution</div>
+                        </button>
+                        <button onclick="selectLayer('L7')" id="tab-L7" data-agent-layer="L7" data-agent-node="STACK_L7_CLI" class="layer-tab col-span-2 sm:col-span-1 text-left p-3 border border-stone bg-alabaster text-slatewarm hover:text-ink hover:border-terracotta font-mono text-xs transition-all cursor-pointer">
+                            <div class="font-bold text-ink">L7</div>
+                            <div class="text-[11px] text-slatewarm mt-0.5 leading-tight">Reverse Eng &amp; CLI</div>
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Detail Inspection Panel -->
+                    <div class="bg-alabaster border border-stone p-5 sm:p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            <div class="lg:col-span-7 space-y-3.5">
+                                <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+                                    <span id="layer-badge" class="px-2.5 py-0.5 bg-terracotta-soft border border-terracotta text-terracotta font-bold">LAYER 01 // OS_DAEMON_CORE</span>
+                                    <span id="layer-status" class="px-2.5 py-0.5 bg-white border border-stone text-sage font-semibold">● ACTIVE_RUNTIME</span>
+                                </div>
+                                <h4 id="layer-title" class="font-display font-bold text-xl sm:text-2xl text-ink">
+                                    L1: OS Daemon Core — Windows Task Scheduler &amp; Win32 Runtime
+                                </h4>
+                                <p id="layer-desc" class="text-sm text-slatewarm leading-relaxed">
+                                    Headless background Python daemon bound directly to Windows Task Scheduler boot/logon triggers. Interfaces with native Win32 Core Audio endpoints, process trees, and system power states without third-party orchestration overhead.
+                                </p>
+                                <div id="layer-tags" class="flex flex-wrap gap-2 pt-1">
+                                    <span class="px-2.5 py-1 bg-white border border-stone font-mono text-[11px] text-ink">Windows Task Scheduler</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone font-mono text-[11px] text-ink">Win32 Core Audio API</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone font-mono text-[11px] text-ink">Headless pythonw.exe</span>
+                                    <span class="px-2.5 py-1 bg-white border border-stone font-mono text-[11px] text-ink">Zero Cloud Dependency</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-white border border-stone p-4 font-mono text-xs">
+                                <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-stone text-slatewarm">
+                                    <span id="layer-file">daemon_core.py</span>
+                                    <span class="text-terracotta font-bold">SPEC_VERIFIED</span>
+                                </div>
+                                <pre id="layer-code" class="text-ink overflow-x-auto leading-relaxed whitespace-pre-wrap"># L1 Windows Native Daemon & Audio Hook
+schtasks /Create /TN "SHARAN_OS_CORE" /SC ONLOGON /RL HIGHEST
+# Direct COM Audio & Process Control
+audio_endpoint.SetMasterVolumeLevelScalar(level, None)
+subprocess.Popen(target_binary, creationflags=DETACHED_PROCESS)</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Flagship Project Cards Grid Below -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: SMRITHAYU -->
+                <article data-build-slot="SLOT_FLG_01" data-slot-label="[UNBUILT_SLOT // 11_FLAGSHIP_SMRITHAYU]" data-agent-owner="AGENT-04" class="editorial-card flex flex-col justify-between p-6" data-agent-node="FLAGSHIP_SMRITHAYU">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="font-mono text-[11px] font-bold tracking-wider uppercase text-terracotta bg-terracotta-soft border border-terracotta/40 px-2.5 py-1">
+                                HEALTHCARE // MOBILE &amp; OCR
+                            </span>
+                            <span class="font-mono text-xs text-slatewarm">#FLG-01</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-3 leading-snug">
+                            SMRITHAYU — Offline-First Medical &amp; SOS Platform
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Mission-critical healthcare and emergency response mobile platform engineered with <strong class="text-ink font-semibold">Flutter</strong> and <strong class="text-ink font-semibold">Firebase</strong>. Features on-device OCR medication &amp; prescription scanning, multi-profile family medical tracking, one-tap emergency SOS alerts, and resilient offline caching.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone pt-4 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Flutter</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Firebase</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">OCR Scanning</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Emergency SOS</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Offline Caching</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Lead-Screw Precision Gaming Claw Machine -->
+                <article data-build-slot="SLOT_FLG_02" data-slot-label="[UNBUILT_SLOT // 12_FLAGSHIP_CLAW_MACHINE]" data-agent-owner="AGENT-04" class="editorial-card flex flex-col justify-between p-6" data-agent-node="FLAGSHIP_CLAW_MACHINE">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="font-mono text-[11px] font-bold tracking-wider uppercase text-terracotta bg-terracotta-soft border border-terracotta/40 px-2.5 py-1">
+                                MECHATRONICS // EMBEDDED
+                            </span>
+                            <span class="font-mono text-xs text-slatewarm">#FLG-02</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-3 leading-snug">
+                            Lead-Screw Precision Gaming Claw Machine
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Electro-mechanical arcade gantry engineered with <strong class="text-ink font-semibold">dual-axis lead-screw motion control</strong> for backlash-free linear positioning, calibrated PWM servo claw actuation, hardware limit-switch homing, and a deterministic embedded C++ state machine.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone pt-4 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Dual-Axis Lead-Screw</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Servo Claw Actuation</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Embedded State Machine</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: ESP32 Sovereign Local Control & Captive Portal -->
+                <article data-build-slot="SLOT_FLG_03" data-slot-label="[UNBUILT_SLOT // 13_FLAGSHIP_ESP32_NODE]" data-agent-owner="AGENT-04" class="editorial-card flex flex-col justify-between p-6" data-agent-node="FLAGSHIP_ESP32_PORTAL">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="font-mono text-[11px] font-bold tracking-wider uppercase text-terracotta bg-terracotta-soft border border-terracotta/40 px-2.5 py-1">
+                                IOT // EDGE HARDWARE
+                            </span>
+                            <span class="font-mono text-xs text-slatewarm">#FLG-03</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-ink mb-3 leading-snug">
+                            ESP32 Sovereign Local Control &amp; Captive Portal
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Standalone <strong class="text-ink font-semibold">ESP32 microcontroller</strong> automation hub operating completely independent of external cloud servers. Combines dual-channel relay switching, IR receiver signal decoding, MFRC522 RFID tag authentication, and an onboard local Wi-Fi AP web server.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone pt-4 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">ESP32</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Dual-Channel Relay</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">IR Receiver</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">MFRC522 RFID</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Wi-Fi AP Server</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. SECTION: ENGINEERING INDEX / The Systems Matrix -->
+        <section id="matrix" class="py-20 lg:py-24 border-b border-stone">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="font-mono text-xs text-terracotta font-semibold tracking-widest uppercase mb-2">
+                        // 03.00 ENGINEERING INDEX [03 / 05]
+                    </div>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight">
+                        ENGINEERING INDEX <span class="text-stone font-light">/</span> The Systems Matrix
+                    </h2>
+                </div>
+
+                <!-- Filterable Tabs -->
+                <div class="flex flex-wrap gap-2 font-mono text-xs" id="matrixFilters">
+                    <button onclick="filterMatrix('all')" data-filter="all" class="filter-btn px-3.5 py-2 border border-terracotta bg-terracotta text-white font-bold uppercase tracking-wider transition-all cursor-pointer">
+                        All Systems (6)
+                    </button>
+                    <button onclick="filterMatrix('autonomous')" data-filter="autonomous" class="filter-btn px-3.5 py-2 border border-stone bg-white text-slatewarm hover:text-ink hover:border-terracotta uppercase tracking-wider transition-all cursor-pointer">
+                        Autonomous &amp; Systems
+                    </button>
+                    <button onclick="filterMatrix('quant')" data-filter="quant" class="filter-btn px-3.5 py-2 border border-stone bg-white text-slatewarm hover:text-ink hover:border-terracotta uppercase tracking-wider transition-all cursor-pointer">
+                        Quant &amp; Markets
+                    </button>
+                    <button onclick="filterMatrix('hardware')" data-filter="hardware" class="filter-btn px-3.5 py-2 border border-stone bg-white text-slatewarm hover:text-ink hover:border-terracotta uppercase tracking-wider transition-all cursor-pointer">
+                        Hardware &amp; Core
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6 Numbered Systems Cards (#SYS-01 through #SYS-06) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="systemsGrid">
+
+                <!-- #SYS-01 -->
+                <div data-build-slot="SLOT_SYS_01" data-slot-label="[UNBUILT_SLOT // 14_MATRIX_SYS_01]" data-agent-owner="AGENT-05" data-category="autonomous" data-agent-node="SYS_01_TELEGRAM_DAEMON" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-01</span>
+                            <span class="text-slatewarm uppercase">Autonomous &amp; Systems</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            Telegram Windows Remote Command Daemon
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            24/7 local Windows automation daemon polling encrypted Telegram bot directives to control master audio endpoints, launch desktop workflows, and manage OS processes remotely.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Python</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Windows Task Scheduler</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Win32 Audio/Process APIs</span>
+                    </div>
+                </div>
+
+                <!-- #SYS-02 -->
+                <div data-build-slot="SLOT_SYS_02" data-slot-label="[UNBUILT_SLOT // 15_MATRIX_SYS_02]" data-agent-owner="AGENT-05" data-category="quant" data-agent-node="SYS_02_SHOONYA_ENGINE" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-02</span>
+                            <span class="text-slatewarm uppercase">Quant &amp; Markets</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            Intraday Price-Action &amp; Options Scalping Engine
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Systematic intraday index options scalping engine built around Shoonya Finvasia execution, order-flow liquidity sweeps, and strict risk-defined position sizing.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Shoonya Finvasia API</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Technical Price Action</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Risk-Managed Execution</span>
+                    </div>
+                </div>
+
+                <!-- #SYS-03 -->
+                <div data-build-slot="SLOT_SYS_03" data-slot-label="[UNBUILT_SLOT // 16_MATRIX_SYS_03]" data-agent-owner="AGENT-05" data-category="hardware" data-agent-node="SYS_03_RFID_RELAY" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-03</span>
+                            <span class="text-slatewarm uppercase">Hardware &amp; Core</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            MFRC522 RFID &amp; Dual-Relay Access Controller
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Deterministic physical access controller operating over a high-speed SPI hardware bus on ESP32 silicon, actuating a low-latency dual-relay switching matrix.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">C++</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">ESP32</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">SPI Hardware Bus</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Low-Latency Relay Matrix</span>
+                    </div>
+                </div>
+
+                <!-- #SYS-04 -->
+                <div data-build-slot="SLOT_SYS_04" data-slot-label="[UNBUILT_SLOT // 17_MATRIX_SYS_04]" data-agent-owner="AGENT-05" data-category="autonomous" data-agent-node="SYS_04_EDGE_PORTFOLIO" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-04</span>
+                            <span class="text-slatewarm uppercase">Autonomous &amp; Systems</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            Warm Editorial Edge Portfolio &amp; Custom DNS Pipeline
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Zero-bloat editorial Op-Art engineering index deployed via Vercel CLI with custom apex domain routing and TLS provisioning on sharannnnn.online.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">HTML/CSS/JS</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Vercel CLI</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Custom Apex DNS sharannnnn.online</span>
+                    </div>
+                </div>
+
+                <!-- #SYS-05 -->
+                <div data-build-slot="SLOT_SYS_05" data-slot-label="[UNBUILT_SLOT // 18_MATRIX_SYS_05]" data-agent-owner="AGENT-05" data-category="hardware" data-agent-node="SYS_05_BINARY_EXTRACTOR" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-05</span>
+                            <span class="text-slatewarm uppercase">Hardware &amp; Core</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            Binary Asset Extraction &amp; Decompilation Pipeline
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            Automated Windows CLI toolchain for unpacking serialized binary archives, parsing asset bundles via REA / UABEA, and batch-reconstructing structured resources.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Node.js</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">REA / UABEA</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Windows CLI Automation</span>
+                    </div>
+                </div>
+
+                <!-- #SYS-06 -->
+                <div data-build-slot="SLOT_SYS_06" data-slot-label="[UNBUILT_SLOT // 19_MATRIX_SYS_06]" data-agent-owner="AGENT-05" data-category="autonomous" data-agent-node="SYS_06_CAMPUS_COMMERCE" class="system-card editorial-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-stone pb-3 mb-4 font-mono text-xs">
+                            <span class="text-terracotta font-bold">#SYS-06</span>
+                            <span class="text-slatewarm uppercase">Autonomous &amp; Systems</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-ink mb-2.5">
+                            Full-Stack Campus &amp; Commerce Web Architectures
+                        </h3>
+                        <p class="text-sm text-slatewarm leading-relaxed mb-5">
+                            End-to-end MERN &amp; Vite web platforms engineered with RESTful APIs, responsive Tailwind UI systems, and high-throughput inventory &amp; campus workflows.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone">
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">React</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Vite</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Node.js</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Express</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">MongoDB</span>
+                        <span class="px-2 py-0.5 bg-alabaster border border-stone font-mono text-[11px] text-ink">Tailwind CSS</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. SECTION: DIRECT CONNECT / Let's Architect Something Extraordinary. -->
+        <section id="contact" class="py-20 lg:py-24">
+            <div data-build-slot="SLOT_DIRECT_CONNECT" data-slot-label="[UNBUILT_SLOT // 20_DIRECT_CONNECT_DISPATCH]" data-agent-owner="AGENT-06" class="editorial-card bg-white p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+                <!-- Decorative Op-Art Corner Accent -->
+                <div class="absolute top-0 right-0 w-48 h-48 op-art-terracotta-dots opacity-75 pointer-events-none"></div>
+
+                <div class="max-w-3xl space-y-6 relative z-10">
+                    <div class="font-mono text-xs text-terracotta font-semibold tracking-widest uppercase">
+                        // 04.00 DIRECT CONNECT [04 / 05]
+                    </div>
+
+                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight leading-[1.06]">
+                        DIRECT CONNECT <span class="text-terracotta">/</span> Let's Architect Something Extraordinary<span class="text-terracotta">.</span>
+                    </h2>
+
+                    <p class="text-slatewarm text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Open for systems architecture collaborations, full-stack &amp; mobile product engineering, embedded ESP32 hardware prototypes, and quantitative research discussions.
+                    </p>
+
+                    <!-- Interactive Copy-to-Clipboard Email Box -->
+                    <div class="pt-2">
+                        <div class="font-mono text-[11px] text-slatewarm uppercase tracking-widest mb-2">
+                            DIRECT_DISPATCH_ENDPOINT // CLICK TO COPY
+                        </div>
+                        <div class="inline-flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                            <button onclick="copyEmail()" class="px-5 py-3.5 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta font-mono text-sm sm:text-base text-ink flex items-center gap-3 transition-colors cursor-pointer text-left">
+                                <span class="text-terracotta font-bold">&gt;_</span>
+                                <span id="emailText">sharan@sharannnnn.online</span>
+                            </button>
+                            <button onclick="copyEmail()" id="copyEmailBtn" class="px-5 py-3.5 bg-terracotta hover:bg-terracotta-bright text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border border-terracotta flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                                <span id="copyBtnLabel">COPY EMAIL</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Social & Domain Links -->
+                    <div class="pt-6 border-t border-stone flex flex-wrap items-center gap-4 font-mono text-xs">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink transition-all flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4 text-terracotta"></i>
+                            <span>GITHUB</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slatewarm"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink transition-all flex items-center gap-2">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-terracotta"></i>
+                            <span>LINKEDIN</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slatewarm"></i>
+                        </a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink transition-all flex items-center gap-2">
+                            <span class="font-bold text-terracotta">𝕏</span>
+                            <span>X // TWITTER</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slatewarm"></i>
+                        </a>
+                        <a href="https://sharannnnn.online" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink transition-all flex items-center gap-2">
+                            <i data-lucide="globe" class="w-4 h-4 text-terracotta"></i>
+                            <span>SHARANNNNN.ONLINE</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slatewarm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-stone bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slatewarm">
+            <p class="text-center sm:text-left">
+                © 2026 Sharan R. Horakeri. Designed with Warm Editorial Op-Art. Built from first principles. Zero corporate fluff.
+            </p>
+            <div class="flex items-center gap-2 text-ink font-semibold">
+                <span class="w-2 h-2 bg-terracotta inline-block"></span>
+                <span>SRH // EOF</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Visual Toast Confirmation -->
+    <div id="toastNotification" class="fixed bottom-20 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-white border border-terracotta px-4 py-3 shadow-lg flex items-center gap-2.5 font-mono text-xs text-ink">
+            <span class="text-terracotta font-bold">✓</span>
+            <span>Email copied to clipboard: <strong class="text-ink">sharan@sharannnnn.online</strong></span>
+        </div>
+    </div>
+
+    <!-- Subtle Audio Unlock Prompt Chip (Shown only if browser autoplay policy requires a click) -->
+    <button onclick="unlockAndPlayAudio()" id="audioPromptChip" class="hidden fixed bottom-4 left-4 z-50 bg-white/95 backdrop-blur-md border border-terracotta shadow-md px-3.5 py-2 flex items-center gap-2.5 font-mono text-[11px] font-bold text-ink hover:bg-cream transition-all cursor-pointer">
+        <span class="w-2 h-2 rounded-full bg-terracotta animate-ping"></span>
+        <span>ENTER // INITIALIZE AUDIO [loki_finale_intro.mp3]</span>
+    </button>
+
+    <!-- AUTONOMOUS AGENT SWARM OVERLAY (Canvas Trails + Floating Roaming Cursors) -->
+    <div id="agentSwarmLayer" class="fixed inset-0 pointer-events-none z-40 overflow-hidden transition-opacity duration-300">
+        <canvas id="agentTrailCanvas" class="w-full h-full block"></canvas>
+        <div id="agentCursorsContainer" class="absolute inset-0"></div>
+    </div>
+
+    <!-- FLOATING BOTTOM-RIGHT SIMULATION & SOUNDTRACK CONTROL DOCK -->
+    <div id="agentControlDock" class="fixed bottom-4 right-4 z-50 bg-white/95 backdrop-blur-md border border-stone hover:border-terracotta shadow-lg px-3 py-2 flex flex-wrap items-center gap-2 font-mono text-[11px] transition-colors">
+        <!-- Active Agent Count & Live Build Progress -->
+        <div class="flex items-center gap-2 pr-2 border-r border-stone">
+            <span id="dockPulseDot" class="w-2 h-2 rounded-full bg-terracotta terracotta-glow-dot animate-pulse"></span>
+            <div class="flex flex-col">
+                <span class="text-ink font-bold tracking-wider leading-none">
+                    <span id="buildStatusLabel" class="text-terracotta">BUILDING:</span>
+                    <span id="buildProgressText">0/20</span>
+                </span>
+                <div class="w-24 h-1 bg-cream border border-stone mt-1 overflow-hidden">
+                    <div id="buildProgressBar" class="h-full bg-terracotta transition-all duration-300" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Lock State Badge (Unlocks immediately at 20/20) -->
+        <div id="scrollLockBadge" class="px-2 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta font-bold uppercase tracking-wider flex items-center gap-1" title="Scrolling locks during construction and unlocks immediately upon 20/20 completion">
+            <span id="scrollLockIcon">🔒</span>
+            <span id="scrollLockText">LOCKED</span>
+        </div>
+
+        <!-- Soundtrack Equalizer + Play/Pause + Mute Controls -->
+        <div class="flex items-center gap-1.5 pl-1 pr-2 border-r border-stone">
+            <button onclick="toggleAudioPlayback()" id="audioPlayPauseBtn" class="px-2 py-1 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5" title="Play or Pause loki_finale_intro.mp3">
+                <span id="eqVisualizer" class="inline-flex items-end gap-[2px] h-3">
+                    <span class="eq-bar w-[2px] h-full bg-terracotta"></span>
+                    <span class="eq-bar w-[2px] h-full bg-terracotta"></span>
+                    <span class="eq-bar w-[2px] h-full bg-terracotta"></span>
+                    <span class="eq-bar w-[2px] h-full bg-terracotta"></span>
+                </span>
+                <span id="audioStatusLabel">AUDIO: PLAY</span>
+            </button>
+            <button onclick="toggleAudioMute()" id="audioMuteBtn" class="px-2 py-1 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink font-bold transition-colors cursor-pointer" title="Mute / Unmute Audio">
+                🔊
+            </button>
+            <button onclick="triggerFallbackAudioPicker()" id="audioLoadFallbackBtn" class="hidden px-2 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta font-bold uppercase tracking-wider transition-colors cursor-pointer" title="Select local MP3 file if not served alongside HTML">
+                📂 LOAD MP3
+            </button>
+        </div>
+
+        <!-- Speed Toggle 1x / 2x -->
+        <button onclick="toggleSwarmSpeed()" id="speedToggleBtn" class="px-2 py-1 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink uppercase tracking-wider transition-colors cursor-pointer" title="Toggle Builder Velocity">
+            1x
+        </button>
+
+        <!-- Pause / Go Live Toggle -->
+        <button onclick="toggleSwarmPause()" id="pauseToggleBtn" class="px-2.5 py-1 bg-terracotta-soft hover:bg-terracotta/20 border border-terracotta/40 text-terracotta font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5" title="Pause or Resume Autonomous Builders">
+            <span id="pauseBtnIcon">❚❚</span>
+            <span id="pauseBtnText">PAUSE</span>
+        </button>
+
+        <!-- Replay Build From Scratch -->
+        <button onclick="replayWebsiteBuild()" id="replayBuildBtn" class="px-2.5 py-1 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-ink font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1" title="Reset Blueprint & Watch 6 Agents Rebuild Website">
+            <span>↻</span>
+            <span>REPLAY</span>
+        </button>
+
+        <!-- Swarm Overlay Hide/Show Toggle -->
+        <button onclick="toggleSwarmVisibility()" id="overlayToggleBtn" class="px-2 py-1 bg-alabaster hover:bg-cream border border-stone hover:border-terracotta text-slatewarm uppercase tracking-wider transition-colors cursor-pointer" title="Hide or Show Builder Cursors">
+            HIDE
+        </button>
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Live IST Clock
+        function updateClock() {
+            const clockEl = document.getElementById('liveClock');
+            if (!clockEl) return;
+            const now = new Date();
+            const istTime = now.toLocaleTimeString('en-IN', {
+                timeZone: 'Asia/Kolkata',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            clockEl.textContent = `IST ${istTime}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // =========================================================================
+        // SOUNDTRACK AUDIO CONTROLLER (./loki_finale_intro.mp3)
+        // =========================================================================
+        const bgAudio = document.getElementById('bgAudio');
+        const eqVisualizer = document.getElementById('eqVisualizer');
+        const audioStatusLabel = document.getElementById('audioStatusLabel');
+        const audioMuteBtn = document.getElementById('audioMuteBtn');
+        const audioPromptChip = document.getElementById('audioPromptChip');
+        const audioLoadFallbackBtn = document.getElementById('audioLoadFallbackBtn');
+        const audioFileFallbackInput = document.getElementById('audioFileFallbackInput');
+
+        let audioUserPaused = false;
+
+        function updateAudioUI() {
+            if (!bgAudio) return;
+            const isPlaying = !bgAudio.paused && !bgAudio.ended;
+            if (eqVisualizer) {
+                if (isPlaying && !bgAudio.muted) {
+                    eqVisualizer.classList.add('eq-playing');
+                } else {
+                    eqVisualizer.classList.remove('eq-playing');
+                }
+            }
+            if (audioStatusLabel) {
+                audioStatusLabel.textContent = isPlaying ? 'BGM: LIVE' : 'AUDIO: PLAY';
+            }
+            if (audioMuteBtn) {
+                audioMuteBtn.textContent = bgAudio.muted ? '🔇' : '🔊';
+            }
+            if (audioPromptChip) {
+                if (isPlaying) {
+                    audioPromptChip.classList.add('hidden');
+                }
+            }
+        }
+
+        function unlockAndPlayAudio() {
+            if (!bgAudio || audioUserPaused) return;
+            bgAudio.volume = 0.65;
+            const playPromise = bgAudio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateAudioUI();
+                    removeAudioUnlockListeners();
+                }).catch(() => {
+                    if (audioPromptChip) {
+                        audioPromptChip.classList.remove('hidden');
+                    }
+                });
+            }
+        }
+
+        function removeAudioUnlockListeners() {
+            window.removeEventListener('pointerdown', unlockAndPlayAudio);
+            window.removeEventListener('keydown', unlockAndPlayAudio);
+            window.removeEventListener('touchstart', unlockAndPlayAudio);
+        }
+
+        window.toggleAudioPlayback = function () {
+            if (!bgAudio) return;
+            if (bgAudio.paused) {
+                audioUserPaused = false;
+                bgAudio.play().then(updateAudioUI).catch(() => {
+                    if (audioLoadFallbackBtn) audioLoadFallbackBtn.classList.remove('hidden');
+                });
+            } else {
+                audioUserPaused = true;
+                bgAudio.pause();
+                updateAudioUI();
+            }
+        };
+
+        window.toggleAudioMute = function () {
+            if (!bgAudio) return;
+            bgAudio.muted = !bgAudio.muted;
+            updateAudioUI();
+        };
+
+        window.triggerFallbackAudioPicker = function () {
+            if (audioFileFallbackInput) audioFileFallbackInput.click();
+        };
+
+        if (audioFileFallbackInput && bgAudio) {
+            audioFileFallbackInput.addEventListener('change', (e) => {
+                const file = e.target.files && e.target.files[0];
+                if (file) {
+                    bgAudio.src = URL.createObjectURL(file);
+                    audioUserPaused = false;
+                    bgAudio.play().then(() => {
+                        if (audioLoadFallbackBtn) audioLoadFallbackBtn.classList.add('hidden');
+                        updateAudioUI();
+                    });
+                }
+            });
+        }
+
+        if (bgAudio) {
+            bgAudio.addEventListener('play', updateAudioUI);
+            bgAudio.addEventListener('pause', updateAudioUI);
+            bgAudio.addEventListener('error', () => {
+                if (audioLoadFallbackBtn) audioLoadFallbackBtn.classList.remove('hidden');
+            });
+            // Attempt immediate autoplay and register first-gesture unlock
+            unlockAndPlayAudio();
+            window.addEventListener('pointerdown', unlockAndPlayAudio, { passive: true });
+            window.addEventListener('keydown', unlockAndPlayAudio, { passive: true });
+            window.addEventListener('touchstart', unlockAndPlayAudio, { passive: true });
+        }
+
+        // =========================================================================
+        // 7-LAYER CONSTITUTIONAL STACK INSPECTOR DATA
+        // =========================================================================
+        const constitutionalLayers = {
+            L1: {
+                badge: 'LAYER 01 // OS_DAEMON_CORE',
+                status: '● ACTIVE_RUNTIME',
+                title: 'L1: OS Daemon Core — Windows Task Scheduler & Win32 Runtime',
+                desc: 'Headless background Python daemon bound directly to Windows Task Scheduler boot/logon triggers. Interfaces with native Win32 Core Audio endpoints, process trees, and system power states without third-party orchestration overhead.',
+                tags: ['Windows Task Scheduler', 'Win32 Core Audio API', 'Headless pythonw.exe', 'Zero Cloud Dependency'],
+                file: 'daemon_core.py',
+                code: `# L1 Windows Native Daemon & Audio Hook\nschtasks /Create /TN "SHARAN_OS_CORE" /SC ONLOGON /RL HIGHEST\n# Direct COM Audio & Process Control\naudio_endpoint.SetMasterVolumeLevelScalar(level, None)\nsubprocess.Popen(target_binary, creationflags=DETACHED_PROCESS)`
+            },
+            L2: {
+                badge: 'LAYER 02 // TELEGRAM_C2',
+                status: '● ENCRYPTED_TUNNEL',
+                title: 'L2: Telegram C2 — Outbound Polling & Operator Command Control',
+                desc: 'Outbound TLS long-polling Command & Control plane via Telegram Bot APIs. Eliminates exposed inbound firewall ports and third-party tunneling brokers while enforcing strict operator Chat-ID cryptographic allowlisting.',
+                tags: ['Outbound TLS Polling', 'Zero Inbound Ports', 'Chat-ID Allowlist', 'Remote Diagnostics'],
+                file: 'telegram_c2.py',
+                code: `# L2 Encrypted Outbound C2 Polling Loop\nwhile True:\n    for update in bot.get_updates(offset=offset, timeout=30):\n        if update.message.chat.id == OPERATOR_ID:\n            execute_directive(update.message.text)`
+            },
+            L3: {
+                badge: 'LAYER 03 // EDGE_WEB_STACK',
+                status: '● EDGE_DEPLOYED',
+                title: 'L3: Edge Web Stack — React, Vite & Vercel Apex DNS Pipeline',
+                desc: 'Zero-bloat web architectures built with semantic HTML/JS, React, and Vite, deployed globally to edge nodes via Vercel CLI with custom apex DNS configuration on sharannnnn.online.',
+                tags: ['React & Vite', 'Vercel Edge Network', 'Custom Apex DNS', 'Zero-Bloat DOM'],
+                file: 'vercel.json',
+                code: `// L3 Edge Routing & Apex DNS Config\n{\n  "cleanUrls": true,\n  "trailingSlash": false,\n  "headers": [{ "source": "/(.*)", "headers": [{ "key": "X-Node", "value": "SRH-EDGE" }] }]\n}`
+            },
+            L4: {
+                badge: 'LAYER 04 // MOBILE_&_OCR',
+                status: '● OFFLINE_RESILIENT',
+                title: 'L4: Mobile & OCR — Flutter, Firebase & On-Device Vision',
+                desc: 'Cross-platform mobile engineering powering SMRITHAYU—combining local SQLite/Hive offline persistence, real-time Firebase sync, on-device OCR prescription scanning, and instant emergency SOS triggers.',
+                tags: ['Flutter Dart', 'On-Device OCR', 'Offline-First Cache', 'Firebase Realtime'],
+                file: 'ocr_scanner_service.dart',
+                code: `// L4 On-Device OCR & Local Cache Persistence\nfinal recognized = await textRecognizer.processImage(inputImage);\nawait localVault.put('rx_record', recognized.text);\nif (await network.isOnline()) await firestoreSync.push();`
+            },
+            L5: {
+                badge: 'LAYER 05 // EMBEDDED_ESP32',
+                status: '● SUB_50MS_IRQ',
+                title: 'L5: Embedded ESP32 — Bare-Metal C++, SPI RFID & Captive Portal',
+                desc: 'Non-blocking embedded C++ firmware running on dual-core ESP32 silicon. Drives MFRC522 RFID authentication over SPI, dual-channel relays, IR receivers, lead-screw stepper kinematics, and a standalone Wi-Fi AP web server.',
+                tags: ['ESP32 Dual-Core', 'MFRC522 SPI Bus', 'Dual-Channel Relay', 'Wi-Fi AP Captive Portal'],
+                file: 'firmware_node.cpp',
+                code: `// L5 Non-Blocking ESP32 SPI RFID & Relay Loop\nif (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial()) {\n    if (verifyUID(mfrc522.uid.uidByte)) {\n        digitalWrite(RELAY_CH1, LOW); // < 5ms actuation\n    }\n}`
+            },
+            L6: {
+                badge: 'LAYER 06 // QUANT_EXECUTION',
+                status: '● LIVE_TAPE_DESK',
+                title: 'L6: Quant Execution — Shoonya API & Intraday Price-Action Engine',
+                desc: 'Disciplined intraday index options scalping and market structure execution framework interfacing with Shoonya Finvasia. Enforces strict liquidity-sweep entry criteria and automated drawdown stops.',
+                tags: ['Shoonya Finvasia API', 'Liquidity Sweep Logic', 'Options Scalping', 'Hard Risk Guard'],
+                file: 'execution_guard.py',
+                code: `# L6 Risk-Bounded Execution Guard\ndef validate_order(setup_rr: float, daily_pnl: float) -> bool:\n    if daily_pnl <= -MAX_DAILY_DRAWDOWN or setup_rr < 2.0:\n        return False\n    return shoonya_client.place_order(product='I', prctyp='LMT')`
+            },
+            L7: {
+                badge: 'LAYER 07 // REVERSE_ENG_&_CLI',
+                status: '● BINARY_READY',
+                title: 'L7: Reverse Eng & CLI — Node.js Asset Extraction & Windows Automation',
+                desc: 'Command-line binary unpacking and asset decompilation pipelines built with Node.js, REA, and UABEA to inspect, extract, and rebuild serialized binary containers automatically.',
+                tags: ['Node.js CLI', 'REA / UABEA', 'Binary Asset Parsing', 'Batch Scripting'],
+                file: 'extract_assets.js',
+                code: `// L7 Automated Binary Bundle Extraction Pipeline\nconst bundles = fs.readdirSync(TARGET_DIR).filter(f => f.endsWith('.bundle'));\nfor (const b of bundles) {\n    execFileSync(UABEA_CLI, ['batchexport', path.join(TARGET_DIR, b), OUT_DIR]);\n}`
+            }
+        };
+
+        // Switch Layer in 7-Layer Constitutional Stack
+        function selectLayer(layerKey) {
+            const data = constitutionalLayers[layerKey];
+            if (!data) return;
+
+            document.querySelectorAll('.layer-tab').forEach(btn => {
+                btn.classList.remove('border-terracotta', 'bg-terracotta-soft', 'text-ink');
+                btn.classList.add('border-stone', 'bg-alabaster', 'text-slatewarm');
+                const codeDiv = btn.querySelector('div:first-child');
+                const nameDiv = btn.querySelector('div:last-child');
+                if (codeDiv) {
+                    codeDiv.classList.remove('text-terracotta');
+                    codeDiv.classList.add('text-ink');
+                }
+                if (nameDiv) {
+                    nameDiv.classList.remove('text-ink', 'font-medium');
+                    nameDiv.classList.add('text-slatewarm');
+                }
+            });
+
+            const activeBtn = document.getElementById(`tab-${layerKey}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-stone', 'bg-alabaster', 'text-slatewarm');
+                activeBtn.classList.add('border-terracotta', 'bg-terracotta-soft', 'text-ink');
+                const codeDiv = activeBtn.querySelector('div:first-child');
+                const nameDiv = activeBtn.querySelector('div:last-child');
+                if (codeDiv) {
+                    codeDiv.classList.remove('text-ink');
+                    codeDiv.classList.add('text-terracotta');
+                }
+                if (nameDiv) {
+                    nameDiv.classList.remove('text-slatewarm');
+                    nameDiv.classList.add('text-ink', 'font-medium');
+                }
+            }
+
+            document.getElementById('layer-badge').textContent = data.badge;
+            document.getElementById('layer-status').textContent = data.status;
+            document.getElementById('layer-title').textContent = data.title;
+            document.getElementById('layer-desc').textContent = data.desc;
+            document.getElementById('layer-file').textContent = data.file;
+            document.getElementById('layer-code').textContent = data.code;
+
+            const tagsEl = document.getElementById('layer-tags');
+            tagsEl.innerHTML = data.tags.map(tag =>
+                `<span class="px-2.5 py-1 bg-white border border-stone font-mono text-[11px] text-ink">${tag}</span>`
+            ).join('');
+        }
+
+        // Filter Systems Matrix
+        function filterMatrix(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.remove('border-stone', 'bg-white', 'text-slatewarm');
+                    btn.classList.add('border-terracotta', 'bg-terracotta', 'text-white', 'font-bold');
+                } else {
+                    btn.classList.remove('border-terracotta', 'bg-terracotta', 'text-white', 'font-bold');
+                    btn.classList.add('border-stone', 'bg-white', 'text-slatewarm');
+                }
+            });
+
+            document.querySelectorAll('.system-card').forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Copy Email to Clipboard with Visual Toast Confirmation
+        let toastTimeout;
+        function copyEmail() {
+            const email = 'sharan@sharannnnn.online';
+            const tempInput = document.createElement('textarea');
+            tempInput.value = email;
+            tempInput.style.position = 'fixed';
+            tempInput.style.left = '-9999px';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(tempInput);
+
+            const btnLabel = document.getElementById('copyBtnLabel');
+            if (btnLabel) {
+                btnLabel.textContent = 'COPIED ✓';
+                setTimeout(() => {
+                    btnLabel.textContent = 'COPY EMAIL';
+                }, 2500);
+            }
+
+            const toast = document.getElementById('toastNotification');
+            if (toast) {
+                clearTimeout(toastTimeout);
+                toast.classList.remove('translate-y-24', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-24', 'opacity-0');
+                }, 3200);
+            }
+        }
+
+        // =========================================================================
+        // AUTONOMOUS 6-AGENT BUILDER ENGINE -> IMMEDIATE SCROLL UNLOCK AT 20/20 -> USER ORBIT SWARM
+        // =========================================================================
+        (function initAutonomousBuilderSwarm() {
+            const swarmLayer = document.getElementById('agentSwarmLayer');
+            const canvas = document.getElementById('agentTrailCanvas');
+            const cursorsContainer = document.getElementById('agentCursorsContainer');
+            if (!swarmLayer || !canvas || !cursorsContainer) return;
+
+            const ctx = canvas.getContext('2d');
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const simState = {
+                paused: false,
+                visible: true,
+                speedMultiplier: 1,
+                lastTime: performance.now(),
+                builtCount: 0,
+                totalSlots: 20,
+                buildComplete: false, // FALSE during build (locked); flips TRUE immediately at 20/20 (unlocked!)
+                returningToTop: false,
+                expectedScrollY: 0,
+                userMouseX: width * 0.5,
+                userMouseY: height * 0.42,
+                hasUserMovedMouse: false,
+                scatterBurstUntil: 0
+            };
+
+            // Track live user mouse position for post-build orbital swarm
+            window.addEventListener('mousemove', (e) => {
+                simState.userMouseX = e.clientX;
+                simState.userMouseY = e.clientY;
+                simState.hasUserMovedMouse = true;
+            }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches[0]) {
+                    simState.userMouseX = e.touches[0].clientX;
+                    simState.userMouseY = e.touches[0].clientY;
+                    simState.hasUserMovedMouse = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('pointerdown', (e) => {
+                simState.userMouseX = e.clientX;
+                simState.userMouseY = e.clientY;
+                simState.hasUserMovedMouse = true;
+                if (simState.buildComplete) {
+                    simState.scatterBurstUntil = performance.now() + 650;
+                    spawnClickRipple(e.clientX, e.clientY);
+                }
+            }, { passive: true });
+
+            // Cross-iframe reliable scroll getters & programmatic setter
+            function getScrollTop() {
+                return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            }
+
+            function getMaxScroll() {
+                const docHeight = Math.max(
+                    document.body.scrollHeight,
+                    document.documentElement.scrollHeight
+                );
+                return Math.max(0, docHeight - height);
+            }
+
+            function setProgrammaticScrollTop(y) {
+                const clamped = Math.max(0, Math.min(getMaxScroll(), y));
+                simState.expectedScrollY = clamped;
+                window.scrollTo(0, clamped);
+                document.documentElement.scrollTop = clamped;
+                document.body.scrollTop = clamped;
+            }
+
+            // Explicit Scroll Lock & Immediate Unlock Controller
+            function setScrollLock(locked) {
+                const badge = document.getElementById('scrollLockBadge');
+                const icon = document.getElementById('scrollLockIcon');
+                const text = document.getElementById('scrollLockText');
+
+                if (locked) {
+                    document.documentElement.classList.add('scroll-locked');
+                    document.body.classList.add('scroll-locked');
+                    document.documentElement.style.overflowY = 'hidden';
+                    document.body.style.overflowY = 'hidden';
+                    if (badge) {
+                        badge.className = 'px-2 py-1 bg-terracotta-soft border border-terracotta/40 text-terracotta font-bold uppercase tracking-wider flex items-center gap-1';
+                    }
+                    if (icon) icon.textContent = '🔒';
+                    if (text) text.textContent = 'LOCKED';
+                } else {
+                    // IMMEDIATELY unlock scrolling across html, body, and inline styles
+                    document.documentElement.classList.remove('scroll-locked');
+                    document.body.classList.remove('scroll-locked');
+                    document.documentElement.style.overflowY = 'auto';
+                    document.body.style.overflowY = 'auto';
+                    if (badge) {
+                        badge.className = 'px-2 py-1 bg-sage-soft border border-sage/40 text-sage font-bold uppercase tracking-wider flex items-center gap-1';
+                    }
+                    if (icon) icon.textContent = '🔓';
+                    if (text) text.textContent = 'UNLOCKED';
+                }
+            }
+
+            // Block user scroll ONLY while buildComplete === false; zero interception once unlocked!
+            function guardScrollInput(e) {
+                if (simState.buildComplete) return;
+                if (e.cancelable) e.preventDefault();
+                e.stopPropagation();
+            }
+
+            window.addEventListener('wheel', guardScrollInput, { passive: false, capture: true });
+            window.addEventListener('touchmove', guardScrollInput, { passive: false, capture: true });
+            window.addEventListener('keydown', (e) => {
+                if (simState.buildComplete) return;
+                if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space', ' ', 'Home', 'End'].includes(e.key)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            }, { capture: true });
+
+            // Cancel return-to-top glide immediately if user manually scrolls after unlock
+            function cancelReturnGlideOnUserInput() {
+                if (simState.buildComplete && simState.returningToTop) {
+                    simState.returningToTop = false;
+                }
+            }
+            window.addEventListener('wheel', cancelReturnGlideOnUserInput, { passive: true });
+            window.addEventListener('touchstart', cancelReturnGlideOnUserInput, { passive: true });
+
+            window.addEventListener('scroll', () => {
+                if (!simState.buildComplete) {
+                    const current = getScrollTop();
+                    if (Math.abs(current - simState.expectedScrollY) > 4) {
+                        setProgrammaticScrollTop(simState.expectedScrollY);
+                    }
+                }
+            }, { passive: true });
+
+            // 8 Sequential Top-to-Bottom Construction Waves across all 20 modules
+            const BUILD_WAVES = [
+                ['SLOT_NAV_BAR', 'SLOT_HERO_HEADLINE', 'SLOT_HERO_METRICS', 'SLOT_SILICON_CARD'],
+                ['SLOT_ABOUT_DOSSIER', 'SLOT_ABOUT_AXIOM'],
+                ['SLOT_PHIL_01', 'SLOT_PHIL_02', 'SLOT_PHIL_03'],
+                ['SLOT_SHARAN_OS'],
+                ['SLOT_FLG_01', 'SLOT_FLG_02', 'SLOT_FLG_03'],
+                ['SLOT_SYS_01', 'SLOT_SYS_02', 'SLOT_SYS_03'],
+                ['SLOT_SYS_04', 'SLOT_SYS_05', 'SLOT_SYS_06'],
+                ['SLOT_DIRECT_CONNECT']
+            ];
+
+            // 6 Specialized Autonomous Builder Agents
+            const agents = [
+                {
+                    id: 'AGENT-01',
+                    tag: '[AGENT-01 // ARCHITECT_DOM]',
+                    color: '#C85A32',
+                    trailColor: 'rgba(200, 90, 50,',
+                    queue: ['SLOT_NAV_BAR', 'SLOT_SILICON_CARD', 'SLOT_SHARAN_OS', 'SLOT_SYS_01', 'SLOT_DIRECT_CONNECT'],
+                    buildSteps: ['SCAFFOLDING_DOM...', 'MOUNTING_TERMINAL...', 'VERIFIED ✓'],
+                    orbitRadiusX: 54,
+                    orbitRadiusY: 42,
+                    orbitSpeed: 2.35,
+                    orbitPhase: 0
+                },
+                {
+                    id: 'AGENT-02',
+                    tag: '[AGENT-02 // HERO_SYNTH]',
+                    color: '#2D5A4C',
+                    trailColor: 'rgba(45, 90, 76,',
+                    queue: ['SLOT_HERO_HEADLINE', 'SLOT_HERO_METRICS', 'SLOT_ABOUT_DOSSIER', 'SLOT_FLG_01', 'SLOT_SYS_02'],
+                    buildSteps: ['COMPILING_HEADLINE...', 'BINDING_COUNTERS...', 'VERIFIED ✓'],
+                    orbitRadiusX: 76,
+                    orbitRadiusY: 56,
+                    orbitSpeed: -1.85,
+                    orbitPhase: Math.PI * 0.35
+                },
+                {
+                    id: 'AGENT-03',
+                    tag: '[AGENT-03 // BIO_COMPILER]',
+                    color: '#DC653A',
+                    trailColor: 'rgba(220, 101, 58,',
+                    queue: ['SLOT_ABOUT_AXIOM', 'SLOT_PHIL_01', 'SLOT_PHIL_02', 'SLOT_PHIL_03', 'SLOT_SYS_03'],
+                    buildSteps: ['PARSING_KLE_PROFILE...', 'INJECTING_AXIOM...', 'VERIFIED ✓'],
+                    orbitRadiusX: 96,
+                    orbitRadiusY: 68,
+                    orbitSpeed: 1.55,
+                    orbitPhase: Math.PI * 0.7
+                },
+                {
+                    id: 'AGENT-04',
+                    tag: '[AGENT-04 // STACK_FORGE]',
+                    color: '#2D5A4C',
+                    trailColor: 'rgba(45, 90, 76,',
+                    queue: ['SLOT_SHARAN_OS', 'SLOT_FLG_02', 'SLOT_FLG_03', 'SLOT_SYS_04'],
+                    buildSteps: ['WIRING_7_LAYER_STACK...', 'FLASHING_ESP32_UI...', 'VERIFIED ✓'],
+                    orbitRadiusX: 66,
+                    orbitRadiusY: 84,
+                    orbitSpeed: -2.15,
+                    orbitPhase: Math.PI * 1.05
+                },
+                {
+                    id: 'AGENT-05',
+                    tag: '[AGENT-05 // MATRIX_ENGINE]',
+                    color: '#C85A32',
+                    trailColor: 'rgba(200, 90, 50,',
+                    queue: ['SLOT_SYS_05', 'SLOT_SYS_06', 'SLOT_FLG_01', 'SLOT_ABOUT_DOSSIER'],
+                    buildSteps: ['HYDRATING_MATRIX...', 'INDEXING_SHOONYA...', 'VERIFIED ✓'],
+                    orbitRadiusX: 112,
+                    orbitRadiusY: 52,
+                    orbitSpeed: 1.95,
+                    orbitPhase: Math.PI * 1.4
+                },
+                {
+                    id: 'AGENT-06',
+                    tag: '[AGENT-06 // NET_DISPATCH]',
+                    color: '#9E4221',
+                    trailColor: 'rgba(158, 66, 33,',
+                    queue: ['SLOT_DIRECT_CONNECT', 'SLOT_SILICON_CARD', 'SLOT_PHIL_03', 'SLOT_FLG_03', 'SLOT_SYS_06'],
+                    buildSteps: ['BINDING_CLIPBOARD...', 'VERIFYING_APEX_DNS...', 'SITE_ONLINE ✓'],
+                    orbitRadiusX: 84,
+                    orbitRadiusY: 94,
+                    orbitSpeed: -1.65,
+                    orbitPhase: Math.PI * 1.75
+                }
+            ];
+
+            // Create DOM Cursor Elements
+            agents.forEach((agent, idx) => {
+                agent.x = width * (0.16 + (idx % 3) * 0.3);
+                agent.y = height * (idx < 3 ? 0.24 : 0.62);
+                agent.vx = 0;
+                agent.vy = 0;
+                agent.startX = agent.x;
+                agent.startY = agent.y;
+                agent.targetX = agent.x;
+                agent.targetY = agent.y;
+                agent.offsetRatioX = 0.35;
+                agent.offsetRatioY = 0.35;
+                agent.ctrlOffsetX = 0;
+                agent.ctrlOffsetY = 0;
+                agent.t = 0;
+                agent.duration = 1.0;
+                agent.state = 'IDLE';
+                agent.workTimer = 0;
+                agent.currentSlotId = null;
+                agent.currentEl = null;
+                agent.trail = [];
+
+                const cursorEl = document.createElement('div');
+                cursorEl.className = 'fixed top-0 left-0 will-change-transform select-none';
+                cursorEl.style.zIndex = 45 + idx;
+                cursorEl.innerHTML = `
+                    <div class="relative flex items-start">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="drop-shadow-[0_2px_6px_rgba(22,22,22,0.22)]">
+                            <path d="M3 2L20 11.5L11.5 14L8.5 22L3 2Z" fill="${agent.color}" stroke="#FFFFFF" stroke-width="1.6"/>
+                        </svg>
+                        <div class="ml-1.5 mt-2.5 bg-white/95 border border-stone px-2 py-0.5 shadow-sm font-mono text-[10px] leading-tight whitespace-nowrap">
+                            <div class="font-bold tracking-wider" style="color: ${agent.color};">${agent.tag}</div>
+                            <div class="text-slatewarm flex items-center gap-1 mt-0.5">
+                                <span class="agent-led w-1.5 h-1.5 rounded-full bg-terracotta inline-block"></span>
+                                <span class="agent-action-text">INITIALIZING...</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cursorsContainer.appendChild(cursorEl);
+                agent.domEl = cursorEl;
+                agent.actionTextEl = cursorEl.querySelector('.agent-action-text');
+                agent.ledEl = cursorEl.querySelector('.agent-led');
+            });
+
+            function spawnClickRipple(x, y) {
+                if (!simState.visible) return;
+                const ripple = document.createElement('div');
+                ripple.className = 'agent-click-ripple';
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                document.body.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 680);
+            }
+
+            function spawnBuildSparks(x, y) {
+                if (!simState.visible) return;
+                for (let i = 0; i < 6; i++) {
+                    const spark = document.createElement('div');
+                    spark.className = 'agent-spark';
+                    spark.style.left = `${x}px`;
+                    spark.style.top = `${y}px`;
+                    if (i % 2 === 1) {
+                        spark.style.backgroundColor = '#2D5A4C';
+                        spark.style.boxShadow = '0 0 6px rgba(45, 90, 76, 0.8)';
+                    }
+                    const angle = (Math.PI * 2 * i) / 6 + (Math.random() - 0.5) * 0.5;
+                    const dist = 18 + Math.random() * 24;
+                    spark.style.setProperty('--sx', `${Math.cos(angle) * dist}px`);
+                    spark.style.setProperty('--sy', `${Math.sin(angle) * dist}px`);
+                    document.body.appendChild(spark);
+                    setTimeout(() => spark.remove(), 580);
+                }
+            }
+
+            // Kinetic typography & counter reveals when slots finish building
+            function animateSlotRevealEffects(slotId) {
+                if (slotId === 'SLOT_HERO_HEADLINE') {
+                    const nameEl = document.getElementById('heroNameTarget');
+                    if (nameEl) {
+                        const finalName = 'SHARAN';
+                        const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#';
+                        let frame = 0;
+                        const interval = setInterval(() => {
+                            nameEl.textContent = finalName
+                                .split('')
+                                .map((ch, idx) => (idx < frame ? ch : glyphs[Math.floor(Math.random() * glyphs.length)]))
+                                .join('');
+                            frame += 0.5;
+                            if (frame > finalName.length) {
+                                nameEl.textContent = finalName;
+                                clearInterval(interval);
+                            }
+                        }, 35);
+                    }
+                } else if (slotId === 'SLOT_HERO_METRICS') {
+                    const sysEl = document.getElementById('metricSystems');
+                    const layEl = document.getElementById('metricLayers');
+                    const bmEl = document.getElementById('metricBareMetal');
+                    let step = 0;
+                    const counter = setInterval(() => {
+                        step++;
+                        if (sysEl) sysEl.textContent = `${Math.min(12, step * 2)}+`;
+                        if (layEl) layEl.textContent = `${Math.min(7, step)}-Layer`;
+                        if (bmEl) bmEl.textContent = `${Math.min(100, step * 17)}%`;
+                        if (step >= 6) {
+                            if (sysEl) sysEl.textContent = '12+';
+                            if (layEl) layEl.textContent = '7-Layer';
+                            if (bmEl) bmEl.textContent = '100%';
+                            clearInterval(counter);
+                        }
+                    }, 55);
+                }
+            }
+
+            function updateProgressUI() {
+                const allSlots = document.querySelectorAll('[data-build-slot]');
+                simState.totalSlots = allSlots.length;
+                const built = document.querySelectorAll('[data-build-slot].slot-built').length;
+                simState.builtCount = built;
+
+                const pct = simState.totalSlots > 0 ? Math.round((built / simState.totalSlots) * 100) : 100;
+                const progressText = document.getElementById('buildProgressText');
+                const progressBar = document.getElementById('buildProgressBar');
+                const statusLabel = document.getElementById('buildStatusLabel');
+                const headerPill = document.getElementById('headerSwarmIndicator');
+
+                if (progressText) progressText.textContent = `${built}/${simState.totalSlots}`;
+                if (progressBar) progressBar.style.width = `${pct}%`;
+
+                // Exact moment all 20/20 modules are created: IMMEDIATELY unlock scrolling!
+                if (built >= simState.totalSlots && !simState.buildComplete) {
+                    simState.buildComplete = true;
+                    setScrollLock(false); // Unlocks html & body overflow-y immediately!
+                    simState.returningToTop = true;
+
+                    if (statusLabel) {
+                        statusLabel.textContent = 'SWARM:';
+                        statusLabel.classList.remove('text-terracotta');
+                        statusLabel.classList.add('text-sage');
+                    }
+                    if (progressText) {
+                        progressText.textContent = 'USER_ORBIT';
+                    }
+                    if (headerPill && simState.visible) {
+                        headerPill.innerHTML = `<span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span><span class="text-sage">SWARM ORBITING CURSOR</span>`;
+                    }
+
+                    // Switch all 6 cursors to User Orbital Swarm status immediately
+                    agents.forEach((agent) => {
+                        agent.state = 'ORBIT_USER';
+                        agent.currentEl = null;
+                        agent.currentSlotId = null;
+                        if (agent.ledEl) {
+                            agent.ledEl.className = 'agent-led w-1.5 h-1.5 rounded-full bg-sage inline-block';
+                        }
+                        if (agent.actionTextEl) {
+                            agent.actionTextEl.textContent = 'ORBITING_USER_POINTER';
+                        }
+                    });
+                } else if (built < simState.totalSlots) {
+                    if (statusLabel) {
+                        statusLabel.textContent = 'BUILDING:';
+                        statusLabel.classList.remove('text-sage');
+                        statusLabel.classList.add('text-terracotta');
+                    }
+                    if (headerPill && simState.visible) {
+                        headerPill.innerHTML = `<span class="w-2 h-2 rounded-full bg-terracotta terracotta-glow-dot animate-pulse"></span><span>6 AGENTS BUILDING (${pct}%)</span>`;
+                    }
+                }
+            }
+
+            // Compute live viewport coordinates for a target DOM element
+            function getLiveElementTarget(el, ratioX = 0.4, ratioY = 0.4) {
+                const rect = el.getBoundingClientRect();
+                const rawX = rect.left + rect.width * ratioX;
+                const rawY = rect.top + rect.height * ratioY;
+                return {
+                    x: Math.max(24, Math.min(width - 180, rawX)),
+                    y: Math.max(20, Math.min(height - 54, rawY))
+                };
+            }
+
+            function getActiveWaveUnbuiltSlots() {
+                for (let w = 0; w < BUILD_WAVES.length; w++) {
+                    const waveSlots = BUILD_WAVES[w]
+                        .map((id) => document.querySelector(`[data-build-slot="${id}"]`))
+                        .filter((el) => el && el.classList.contains('slot-unbuilt'));
+                    if (waveSlots.length > 0) {
+                        return waveSlots;
+                    }
+                }
+                return Array.from(document.querySelectorAll('[data-build-slot].slot-unbuilt'));
+            }
+
+            function assignNextTask(agent) {
+                if (simState.buildComplete) {
+                    agent.state = 'ORBIT_USER';
+                    return;
+                }
+
+                const activeWaveSlots = getActiveWaveUnbuiltSlots();
+                const activeWaveIds = new Set(activeWaveSlots.map((el) => el.getAttribute('data-build-slot')));
+
+                const claimedIds = new Set(
+                    agents
+                        .filter((a) => a !== agent && a.currentSlotId && (a.state === 'MOVING' || a.state === 'BUILDING'))
+                        .map((a) => a.currentSlotId)
+                );
+
+                let nextSlotId = agent.queue.find((id) => activeWaveIds.has(id) && !claimedIds.has(id));
+                if (!nextSlotId && activeWaveSlots.length > 0) {
+                    const unclaimedWave = activeWaveSlots.filter(
+                        (el) => !claimedIds.has(el.getAttribute('data-build-slot'))
+                    );
+                    const pool = unclaimedWave.length > 0 ? unclaimedWave : activeWaveSlots;
+                    const chosenSlot = pool[Math.floor(Math.random() * pool.length)];
+                    nextSlotId = chosenSlot.getAttribute('data-build-slot');
+                }
+
+                agent.startX = agent.x;
+                agent.startY = agent.y;
+                agent.offsetRatioX = 0.24 + Math.random() * 0.52;
+                agent.offsetRatioY = 0.26 + Math.random() * 0.48;
+                agent.ctrlOffsetX = (Math.random() - 0.5) * 180;
+                agent.ctrlOffsetY = (Math.random() - 0.5) * 140;
+
+                if (nextSlotId) {
+                    const el = document.querySelector(`[data-build-slot="${nextSlotId}"]`);
+                    if (el) {
+                        const coords = getLiveElementTarget(el, agent.offsetRatioX, agent.offsetRatioY);
+                        agent.currentSlotId = nextSlotId;
+                        agent.currentEl = el;
+                        agent.targetX = coords.x;
+                        agent.targetY = coords.y;
+
+                        const dist = Math.hypot(agent.targetX - agent.startX, agent.targetY - agent.startY);
+                        agent.duration = Math.max(0.55, Math.min(1.15, dist / 520));
+                        agent.t = 0;
+                        agent.state = 'MOVING';
+                        if (agent.ledEl) {
+                            agent.ledEl.className = 'agent-led w-1.5 h-1.5 rounded-full bg-terracotta inline-block';
+                        }
+                        if (agent.actionTextEl) {
+                            agent.actionTextEl.textContent = `ROUTING -> ${nextSlotId.replace('SLOT_', '')}`;
+                        }
+                    }
+                }
+            }
+
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            // Reset entire page to empty wireframe blueprints, lock scroll & launch the 6 builder agents
+            window.replayWebsiteBuild = function () {
+                const slots = document.querySelectorAll('[data-build-slot]');
+                slots.forEach((slot) => {
+                    slot.classList.remove('slot-built', 'slot-building');
+                    slot.classList.add('slot-unbuilt');
+                });
+                simState.buildComplete = false;
+                simState.returningToTop = false;
+                setScrollLock(true);
+                setProgrammaticScrollTop(0);
+                updateProgressUI();
+
+                agents.forEach((agent, idx) => {
+                    agent.trail = [];
+                    agent.state = 'IDLE';
+                    agent.currentEl = null;
+                    agent.currentSlotId = null;
+                    setTimeout(() => assignNextTask(agent), idx * 95);
+                });
+            };
+
+            // Start initial live build immediately on load
+            window.replayWebsiteBuild();
+
+            // Smooth Programmatic Camera-Follow Auto-Scroll Controller
+            function updateAutoFollowCamera(dt) {
+                if (simState.paused) return;
+
+                // Post-build smooth glide back to top (does NOT block user scroll if user scrolls manually)
+                if (simState.buildComplete && simState.returningToTop) {
+                    const currentY = getScrollTop();
+                    if (currentY <= 3) {
+                        window.scrollTo(0, 0);
+                        simState.returningToTop = false;
+                    } else {
+                        const nextY = currentY + (0 - currentY) * Math.min(1, dt * 4.5);
+                        window.scrollTo(0, nextY);
+                    }
+                    return;
+                }
+
+                if (simState.buildComplete) return;
+
+                // Follow active construction wave down the page during build
+                const activeWaveSlots = getActiveWaveUnbuiltSlots();
+                if (activeWaveSlots.length === 0) return;
+
+                const currentScrollY = getScrollTop();
+                let sumDocY = 0;
+                activeWaveSlots.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    sumDocY += currentScrollY + rect.top + Math.min(rect.height * 0.4, height * 0.35);
+                });
+                const avgWaveDocY = sumDocY / activeWaveSlots.length;
+                const desiredScrollY = Math.max(0, Math.min(getMaxScroll(), avgWaveDocY - height * 0.44));
+
+                const diff = desiredScrollY - currentScrollY;
+                if (Math.abs(diff) > 1.2) {
+                    const lerpFactor = Math.min(1, dt * 4.4);
+                    setProgrammaticScrollTop(currentScrollY + diff * lerpFactor);
+                }
+            }
+
+            // Main 60fps Construction & Post-Build User Orbital Swarm Loop
+            function animateSwarm(now) {
+                const rawDt = (now - simState.lastTime) / 1000;
+                simState.lastTime = now;
+                const dt = Math.min(rawDt, 0.05) * simState.speedMultiplier;
+
+                updateAutoFollowCamera(dt);
+
+                ctx.clearRect(0, 0, width, height);
+
+                // Determine orbital focal anchor after build completes
+                let anchorX = simState.userMouseX;
+                let anchorY = simState.userMouseY;
+                if (simState.buildComplete && !simState.hasUserMovedMouse) {
+                    anchorX = width * 0.5 + Math.cos(now * 0.00085) * Math.min(180, width * 0.2);
+                    anchorY = height * 0.42 + Math.sin(now * 0.0011) * Math.min(110, height * 0.16);
+                }
+
+                const scatterFactor = now < simState.scatterBurstUntil ? 1.85 : 1.0;
+
+                agents.forEach((agent, idx) => {
+                    if (!simState.paused) {
+                        if (simState.buildComplete || agent.state === 'ORBIT_USER') {
+                            // Post-build phase: all 6 cursors orbit & roam around the user's live mouse pointer
+                            agent.orbitPhase += agent.orbitSpeed * dt;
+                            const wobble = Math.sin(now * 0.0022 + idx * 1.4) * 14;
+                            const rx = (agent.orbitRadiusX + wobble) * scatterFactor;
+                            const ry = (agent.orbitRadiusY + wobble * 0.7) * scatterFactor;
+
+                            const rawTargetX = anchorX + Math.cos(agent.orbitPhase) * rx;
+                            const rawTargetY = anchorY + Math.sin(agent.orbitPhase) * ry;
+
+                            const clampedX = Math.max(18, Math.min(width - 175, rawTargetX));
+                            const clampedY = Math.max(18, Math.min(height - 52, rawTargetY));
+
+                            // Spring-damped velocity tracking around user pointer
+                            const springK = 14.0;
+                            const damping = 0.78;
+                            agent.vx = (agent.vx + (clampedX - agent.x) * springK * dt) * damping;
+                            agent.vy = (agent.vy + (clampedY - agent.y) * springK * dt) * damping;
+                            agent.x += agent.vx;
+                            agent.y += agent.vy;
+                        } else {
+                            // Active construction phase: build all 20 modules wave-by-wave
+                            if (agent.currentEl) {
+                                const liveCoords = getLiveElementTarget(
+                                    agent.currentEl,
+                                    agent.offsetRatioX,
+                                    agent.offsetRatioY
+                                );
+                                agent.targetX = liveCoords.x;
+                                agent.targetY = liveCoords.y;
+                            }
+
+                            if (agent.state === 'MOVING') {
+                                agent.t += dt / agent.duration;
+                                if (agent.t >= 1) {
+                                    agent.t = 1;
+                                    agent.x = agent.targetX;
+                                    agent.y = agent.targetY;
+
+                                    if (agent.currentEl) {
+                                        agent.state = 'BUILDING';
+                                        agent.workTimer = 0.62;
+                                        agent.currentEl.classList.add('slot-building');
+                                        spawnClickRipple(agent.x, agent.y);
+                                        spawnBuildSparks(agent.x, agent.y);
+                                        if (agent.actionTextEl) {
+                                            agent.actionTextEl.textContent = agent.buildSteps[0];
+                                        }
+                                    } else {
+                                        assignNextTask(agent);
+                                    }
+                                } else {
+                                    const u = easeInOutCubic(agent.t);
+                                    const inv = 1 - u;
+                                    const ctrlX = Math.max(
+                                        40,
+                                        Math.min(width - 160, (agent.startX + agent.targetX) * 0.5 + agent.ctrlOffsetX)
+                                    );
+                                    const ctrlY = Math.max(
+                                        30,
+                                        Math.min(height - 70, (agent.startY + agent.targetY) * 0.5 + agent.ctrlOffsetY)
+                                    );
+                                    agent.x = inv * inv * agent.startX + 2 * inv * u * ctrlX + u * u * agent.targetX;
+                                    agent.y = inv * inv * agent.startY + 2 * inv * u * ctrlY + u * u * agent.targetY;
+                                }
+                            } else if (agent.state === 'BUILDING') {
+                                agent.workTimer -= dt;
+                                agent.x = agent.targetX + Math.sin(now * 0.038) * 6;
+                                agent.y = agent.targetY + Math.cos(now * 0.03) * 3.5;
+
+                                if (agent.workTimer < 0.3 && agent.actionTextEl) {
+                                    agent.actionTextEl.textContent = agent.buildSteps[1];
+                                }
+
+                                if (agent.workTimer <= 0) {
+                                    if (agent.currentEl) {
+                                        agent.currentEl.classList.remove('slot-unbuilt', 'slot-building');
+                                        agent.currentEl.classList.add('slot-built');
+                                        animateSlotRevealEffects(agent.currentSlotId);
+                                    }
+                                    spawnBuildSparks(agent.x, agent.y);
+                                    updateProgressUI();
+                                    if (!simState.buildComplete) {
+                                        if (agent.actionTextEl) {
+                                            agent.actionTextEl.textContent = agent.buildSteps[2];
+                                        }
+                                        assignNextTask(agent);
+                                    }
+                                }
+                            }
+                        }
+
+                        agent.trail.push({ x: agent.x, y: agent.y, life: 1.0 });
+                        if (agent.trail.length > 30) {
+                            agent.trail.shift();
+                        }
+                    }
+
+                    // Fade & draw warm editorial trajectory trail
+                    for (let i = agent.trail.length - 1; i >= 0; i--) {
+                        if (!simState.paused) {
+                            agent.trail[i].life -= dt * 1.65;
+                        }
+                        if (agent.trail[i].life <= 0) {
+                            agent.trail.splice(i, 1);
+                        }
+                    }
+
+                    if (simState.visible && agent.trail.length > 1) {
+                        for (let i = 1; i < agent.trail.length; i++) {
+                            const p0 = agent.trail[i - 1];
+                            const p1 = agent.trail[i];
+                            const alpha = Math.max(0, p1.life * 0.36);
+                            ctx.beginPath();
+                            ctx.moveTo(p0.x + 2, p0.y + 2);
+                            ctx.lineTo(p1.x + 2, p1.y + 2);
+                            ctx.strokeStyle = `${agent.trailColor}${alpha.toFixed(3)})`;
+                            ctx.lineWidth = 1.45;
+                            ctx.stroke();
+                        }
+                    }
+
+                    if (agent.domEl) {
+                        agent.domEl.style.transform = `translate3d(${agent.x.toFixed(1)}px, ${agent.y.toFixed(1)}px, 0)`;
+                    }
+                });
+
+                requestAnimationFrame(animateSwarm);
+            }
+
+            requestAnimationFrame(animateSwarm);
+
+            // Global Control Handlers for Bottom-Right Dock & Header Pill
+            window.toggleSwarmSpeed = function () {
+                simState.speedMultiplier = simState.speedMultiplier === 1 ? 2 : 1;
+                const speedBtn = document.getElementById('speedToggleBtn');
+                if (speedBtn) {
+                    speedBtn.textContent = `${simState.speedMultiplier}x`;
+                    if (simState.speedMultiplier === 2) {
+                        speedBtn.classList.add('border-terracotta', 'text-terracotta', 'font-bold');
+                    } else {
+                        speedBtn.classList.remove('border-terracotta', 'text-terracotta', 'font-bold');
+                    }
+                }
+            };
+
+            window.toggleSwarmPause = function () {
+                simState.paused = !simState.paused;
+                const pauseText = document.getElementById('pauseBtnText');
+                const pauseIcon = document.getElementById('pauseBtnIcon');
+                const pulseDot = document.getElementById('dockPulseDot');
+
+                if (pauseText && pauseIcon) {
+                    if (simState.paused) {
+                        pauseIcon.textContent = '▶';
+                        pauseText.textContent = 'GO LIVE';
+                        if (pulseDot) pulseDot.classList.remove('animate-pulse');
+                    } else {
+                        pauseIcon.textContent = '❚❚';
+                        pauseText.textContent = 'PAUSE';
+                        if (pulseDot) pulseDot.classList.add('animate-pulse');
+                    }
+                }
+            };
+
+            window.toggleSwarmVisibility = function () {
+                simState.visible = !simState.visible;
+                const overlayBtn = document.getElementById('overlayToggleBtn');
+                const headerPill = document.getElementById('headerSwarmIndicator');
+
+                if (simState.visible) {
+                    swarmLayer.classList.remove('opacity-0');
+                    if (overlayBtn) overlayBtn.textContent = 'HIDE';
+                    updateProgressUI();
+                } else {
+                    swarmLayer.classList.add('opacity-0');
+                    if (overlayBtn) overlayBtn.textContent = 'SHOW';
+                    if (headerPill) headerPill.innerHTML = `<span class="w-2 h-2 rounded-full bg-slatewarm"></span><span>CURSORS HIDDEN</span>`;
+                }
+            };
+        })();
+    </script>
+</body>
+</html>
